@@ -28,7 +28,8 @@ app.use(cookieSession( {
 );
 
 app.get("/", function(req,res){
-	res.redirect('login');
+	res.send("THIS IS THE HOME PAGE, I WILL FIX IT!");
+	// res.redirect('login');
 });
 
 //Showing all Events
@@ -102,5 +103,5 @@ app.get("*", function(req,res){
 
 
 app.listen(process.env.PORT || 3000, function() {
-		console.log('The Server is listening on localhost: 3000');
+		console.log('The Server is running!');
 	});
