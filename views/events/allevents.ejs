@@ -1,0 +1,16 @@
+<html>
+<head>
+	<title>All Events</title>
+</head>
+<body>
+	<h1>All Events</h1>
+	<% events.forEach(function(event) {%>
+<p>
+	<%=event.dataValues.title%>
+	<%=event.dataValues.djs%>
+
+</p>
+		<%})%>
+
+</body>
+</html>

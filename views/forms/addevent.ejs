@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title>Add Event</title>
+</head>
+<body>
+	<form action="/addevent" method = "post">
+<!-- 			<p>
+				<label for="user">Username:</label> 
+				<input type="text" name="username" id="user" autofocus value = <%=username %>>
+			</p> -->
+			<p>
+				<label for="title">Title:</label>
+				<input type ="text" name ="title" id="title"> 
+			</p>
+			<p>
+				<label for="eventdate">Event Date</label>
+				<input type ="date" name ="eventdate" id="eventdate"> 
+			</p>
+			<p>
+				<label for="djs">DJs</label>
+				<input type ="text" name ="djs" id="djs"> 
+			</p>
+			<p>
+				<label for="body">Description</label>
+				<input type ="text" name ="body" id ="body"> 
+			</p>
+			<p>
+				<label for="flyerlink">link to flyer</label>
+				<input type ="text" name ="flyerlink" id ="flyerlink"> 
+			</p>
+			<p>
+				<input type="submit" value="Log In" class ="btn btn-primary ">
+			</p>
+	</form>
+
+</body>
+</html>
