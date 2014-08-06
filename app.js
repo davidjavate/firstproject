@@ -9,7 +9,6 @@ var express = require('express'),
   	flash = require('connect-flash'),
 	app = express();
 
-
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: false}) );
@@ -28,8 +27,7 @@ app.use(cookieSession( {
 );
 
 app.get("/", function(req,res){
-	res.send("THIS IS THE HOME PAGE, I WILL FIX IT!");
-	// res.redirect('login');
+	res.redirect('login');
 });
 
 //Showing all Events
