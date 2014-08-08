@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
 		classMethods: {
 
         	associate: function(db){
-          	User.hasMany(db.event);
+          		User.hasMany(db.event, {through: db.event_users});
         	},
      
 			encryptPass: function(password) {

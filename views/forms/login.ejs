@@ -1,8 +1,13 @@
-<html>
-<head>
-	<title>Login</title>
-</head>
-<body>
+<% include ../partials/header %>
+
+
+
+<% if (typeof message !== 'undefined') { %>
+		<p style = "color:red">
+		<%= message %>
+		</p>
+	<% } %>
+
 	<form action="/login" method = "post">
 
 			<p>
@@ -16,5 +21,4 @@
 			</p>
 		</form>
 		<a href="/signup">Don't have an account? Create one here</a>
-</body>
-</html>
+<% include ../partials/footer %>

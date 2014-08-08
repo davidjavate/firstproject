@@ -1,9 +1,22 @@
-<html>
-<head>
-	<title>DJ Page</title>
-</head>
-<body>
-	<h1>DJ Page</h1>
+<% include ../partials/header %>
 
-</body>
-</html>
+
+
+     <div id="target">
+       </div>
+        <script>
+        SC.initialize({
+  client_id: "39f490db5fb33230121f34a0222c2485"
+});
+
+
+ SC.oEmbed("https://soundcloud.com/marcel-fengler", 
+    {color: "ff0066"},  
+    document.getElementById("target"));
+
+</script>
+
+
+		
+	
+<% include ../partials/footer %>

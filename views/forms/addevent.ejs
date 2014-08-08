@@ -1,8 +1,4 @@
-<html>
-<head>
-	<title>Add Event</title>
-</head>
-<body>
+<% include ../partials/header %>
 	<form action="/addevent" method = "post">
 <!-- 			<p>
 				<label for="user">Username:</label> 
@@ -13,19 +9,19 @@
 				<input type ="text" name ="title" id="title"> 
 			</p>
 			<p>
-				<label for="eventdate">Event Date</label>
+				<label for="eventdate">Event Date: </label>
 				<input type ="date" name ="eventdate" id="eventdate"> 
 			</p>
 			<p>
-				<label for="djs">DJs</label>
+				<label for="djs">DJs: </label>
 				<input type ="text" name ="djs" id="djs"> 
 			</p>
 			<p>
-				<label for="body">Description</label>
+				<label for="body">Description: </label>
 				<input type ="text" name ="body" id ="body"> 
 			</p>
 			<p>
-				<label for="flyerlink">link to flyer</label>
+				<label for="flyerlink">link to flyer: </label>
 				<input type ="text" name ="flyerlink" id ="flyerlink"> 
 			</p>
 			<p>
@@ -33,5 +29,4 @@
 			</p>
 	</form>
 
-</body>
-</html>
+<% include ../partials/footer %>

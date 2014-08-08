@@ -1,6 +1,6 @@
 {
   "development": {
-    
+
     "database": "firstproj_development",
     "host": "127.0.0.1",
     "dialect": "postgres"
@@ -13,8 +13,12 @@
   },
   "production": {
     
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "username": "wwzvuxdpmqemnl",
+    "password": "c6nEddAklfRCfjL3IzfS0KnDXt",
+    "host": "ec2-54-235-132-177.compute-1.amazonaws.com",
+    "port": "5432",
+    "database": "dsbnk4j5gdgmj"
+    
   }
 }

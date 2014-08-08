@@ -8,12 +8,13 @@ module.exports = function (sequelize, DataTypes){
 		userId: {
 			type: DataTypes.INTEGER,
 			foreignKey: true
-		}
+		},
+		flyerlink: DataTypes.TEXT
 	},
 		{
       		classMethods: {
 		        associate: function(db){
-		          Event.hasMany(db.user);
+		          Event.hasMany(db.user, {through: db.event_users});
       		 	 }
         	}
  

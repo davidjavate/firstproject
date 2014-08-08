@@ -1,9 +1,27 @@
-<html>
-<head>
-	<title>One Event</title>
-</head>
-<body>
-	<h1>One Event</h1>
+<% include ../partials/header %>
+<p> 
+		<img src="<%=event.dataValues.flyerlink%>"/>
+</p>
+<p> 
+		<%=event.dataValues.title%>
+</p>
 
-</body>
-</html>
+<p> 
+		<%=event.dataValues.djs%>
+</p>
+<p> 
+		<%=event.dataValues.body%>
+</p>
+
+
+	<form class="favorites" method="post" action="/favorites">
+		        <input type="hidden" name="title" value="<%= event.title %>"></input>
+		        <input type="hidden" name="eventdate" value="<%= event.eventdate %>"></input>
+		        <input type="hidden" name="eventid" value="<%= event.id %>"></input>
+					<button class="btn btn-danger">Save to Favorites</button>
+		    </form>
+
+
+
+
+<% include ../partials/footer %>
