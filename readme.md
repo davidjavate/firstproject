@@ -15,7 +15,7 @@ App clone of a Nightlife website where one could:
 *Express	
 *Sequelize	
 *Soundcloud API	(Generate your own Client ID to use)	
-Passport
+*Passport
 
 	
 
