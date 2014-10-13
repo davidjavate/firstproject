@@ -1,24 +1,30 @@
 <% include ../partials/header %>
 
+<div class = "row">
+	<div class="col-md-4">
 
+		<h3>Login:</h3>
 
-<% if (typeof message !== 'undefined') { %>
-		<p style = "color:red">
-		<%= message %>
-		</p>
-	<% } %>
+			<% if (typeof message == 'undefined') { %>
+				<p style = "color:red">
+				<%= message %>
+				</p>
+			<% } %>
 
-	<form action="/login" method = "post">
+	<form action="/login" method = "post" role ="form-horizontal">
 
-			<p>
-				<label for="user">Username:</label> <input type="text" name="username" id="user" autofocus value = <%=username %>>
-			</p>
-			<p>
-				<label for="pass">Password:</label> <input type="password" name="password" id="pass">
-			</p>
-			<p>
+			<div class = "form-group" >
+				<label for="user">Username:</label>
+				<input type="text" name="username" id="user" autofocus class="form-control">
+			</div>
+			<div class = "form-group" >
+				<label for="pass">Password:</label> <input type="password" name="password" id="pass" class="form-control">
+			</div>
+			<div class = "form-group" >
 				<input type="submit" value="Log In" class ="btn btn-primary ">
-			</p>
-		</form>
+			</div>
+	</form>
 		<a href="/signup">Don't have an account? Create one here</a>
+	</div>
+</div>
 <% include ../partials/footer %>

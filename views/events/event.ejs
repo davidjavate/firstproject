@@ -1,17 +1,22 @@
 <% include ../partials/header %>
-<p> 
-		<img src="<%=event.dataValues.flyerlink%>"/>
-</p>
-<p> 
-		<%=event.dataValues.title%>
-</p>
+<div class ="row">
 
-<p> 
-		<%=event.dataValues.djs%>
-</p>
-<p> 
-		<%=event.dataValues.body%>
-</p>
+<!-- Individual Event info -->
+	<p>
+			<img src="<%=event.dataValues.flyerlink%>"/>
+	</p>
+
+	<p>
+		<h2>Event:	<%=event.dataValues.title%></h2>
+	</p>
+
+	<p>
+			<h3>DJs: <%=event.dataValues.djs%></h3>
+	</p>
+
+	<p>
+			<%=event.dataValues.body%>
+	</p>
 
 
 	<form class="favorites" method="post" action="/favorites">
@@ -23,5 +28,5 @@
 
 
 
-
+</div>
 <% include ../partials/footer %>

@@ -1,23 +1,26 @@
 <% include ../partials/header %>
+<div class = "row">
+	<div class="col-md-4">
+	<h3>Sign up for an account:</h3>
 
 
 
-<% if(typeof message !== 'undefined') {%>
-		<div class="alert alert-danger">
+<% if(typeof message == 'undefined') {%>
+		<p style = "color:red">
 		<%= message %>
-		</div>
+		</p>
 		<% }%>
 
-	<form action="/signup" method = "post">
-	<p>
-		<label for="username">Username: </label> <input type="text" name="username" id="username" autofocus value = <%=username %>>
-	</p>
-	<p>
-	<label for="password">Password: </label> <input type="password" name="password" id="password">
-	</p>
-	<p>
+	<form action="/signup" method = "post" role ="form-horizontal">
+	<div class = "form-group" >
+		<label for="username">Username: </label> <input type="text" name="username" id="username" autofocus class="form-control">
+	</div>
+	<div class = "form-group" >
+	<label for="password">Password: </label> <input type="password" name="password" id="password" class="form-control">
+	</div>
+	<div class = "form-group" >
 	<input type="submit" value="Sign up!" class = "btn btn-primary">
-	</p>
+	</div>
 	<a href="/login">Already have an account? Log in here</a>
 </form>
 <% include ../partials/footer %>

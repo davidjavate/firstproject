@@ -1,6 +1,6 @@
 <% include ../partials/header %>
 
-
+<div = "row">
 	<%  if (!isAuthenticated){ %>
 		<br>
 		<div class="alert alert-warning">
@@ -8,23 +8,25 @@
 		</div>
 	<%  } else {%>
 
-	<h1>Hello, <%= user.username %> - here's your list of parties!</h1>
+	<h2>Hello, <%= user.username %> - here's your list of parties!</h2>
 
-	<% event_users.forEach(function(event) {%>	
-			
+	<% myEvents.forEach(function(event) {%>
+
 				<p>
-			
-			<%=event.dataValues.title%>
+
+			<h3><a href ="/event/<%=event.id%>"><%=event.dataValues.title%></a></h3>
 			</p>
-			
+
 <%})%>
 
 <%  }%>
 
 
-	<a href="/logout" class = "btn btn-danger btn-lg">Log out here</a>
+	<a href="/logout" class = "btn btn-danger btn-lg">Log out</a>
 
-	
+	</div>
+
+
 
 
 

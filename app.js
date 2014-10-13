@@ -24,8 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-
-// var favoriteEvents=[];
+//User Authentication
 
 passport.serializeUser(function(user, done){
   console.log("SERIALIZED JUST RAN!");
@@ -39,7 +38,7 @@ passport.deserializeUser(function(id, done){
         id: id
       }
     })
-    .done(function(error,user){ 
+    .done(function(error,user){
       done(error, user);
     });
 });
@@ -55,7 +54,7 @@ app.get('/allevents',function(req,res) {
 	db.event.findAll().success(function(taco){
 		res.render('events/allevents', {events: taco});
 	});
-		
+
 	});
 
 //Show one event
@@ -63,7 +62,7 @@ app.get('/event/:id', function(req,res) {
 	var eventid = req.params.id;
 	db.event.find(eventid).success(function(taco){
 		res.render('events/event', {event: taco, id: eventid});
-	});	
+	});
 });
 
 //Login form
@@ -91,20 +90,28 @@ app.get('/addevent', function(req,res) {
 	res.render('forms/addevent', {username: ""});
 });
 
-//User Profile
-app.get('/user', function(req,res) {
-  	db.event_users.findAll().success(function(taco){
-  		db.event.find(eventId).success(function(events){
-		res.render('people/user', {
-			isAuthenticated: req.isAuthenticated(),
-			event_users: taco,
-			eventId: eventid,
-			title: title,
-			user: req.user
-		});	
-	});
-  	});
-});
+
+//User favorited events
+
+app.get("/user", function(req, res){
+if(req.user){
+	db.user.find(req.user.id).success(function(userFromDb) {
+
+  		userFromDb.getEvents().success(function (myEvents) {
+  			var myEvents = myEvents;
+
+  			console.log("myEvents" +  JSON.stringify(myEvents));
+			res.render('people/user', {
+	  			myEvents: myEvents,
+	  			isAuthenticated: req.isAuthenticated(),
+ 				user: req.user
+	  		})
+		})
+  	})
+} else {
+	res.redirect('/login');
+}
+})
 
 
 //DJ Profile
@@ -155,25 +162,26 @@ app.post('/favorites', function(req, res){
   .success(function(event_user){
   	 res.redirect('/allevents');
   })
- 
+
 
 });
 
-app.delete("/favorites/:id", function(req, res) {
-  var id = req.params.id;
-  var eventIndex;
-  favoriteEvents.forEach(function(event, index) {
-    if (event.id === id) {
-      eventIndex = index;
-    }
-  });
-  favoriteEvents.splice(eventIndex, 1);
-  res.redirect("/allevents");
-});
+// app.delete("/favorites/:id", function(req, res) {
+//   var id = req.params.id;
+//   var eventIndex;
+//   favoriteEvents.forEach(function(event, index) {
+//     if (event.id === id) {
+//       eventIndex = index;
+//     }
+//   });
+//   favoriteEvents.splice(eventIndex, 1);
+//   res.redirect("/allevents");
+// });
+
 
 app.post('/login', passport.authenticate('local', {
-  successRedirect: '/allevents', 
-  failureRedirect: '/login', 
+  successRedirect: '/allevents',
+  failureRedirect: '/login',
   failureFlash: true
 }));
 
